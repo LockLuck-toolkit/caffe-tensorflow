@@ -36,13 +36,13 @@ It contains the weights and the architecture of the network.
 Run `convert.py` to convert an existing Caffe model to TensorFlow.
 
 The input consists of an existing Caffe model. 
-1. `--caffemodel ./model.caffemodel ./model.prototxt`, Make sure you're using the latest Caffe format.
+1. `--caffemodel ./model.caffemodel ./model.prototxt`. Make sure you're using the latest Caffe format.
 
 The output consists of the files:
 
-1. `--standalone-output-path ./standalone.pb`, A standalone.pb GraphDef model file containing the model's graph and learned parameters (to be loaded on Tensorflow)
-2. `--code-output-path ./output.py`, A Python class that constructs the model's graph.
-3. `--data-output-path ./output.mat`, A data file (in NumPy's native format) containing the model's learned parameters.
+1. `--standalone-output-path ./standalone.pb`, a standalone.pb GraphDef model file containing the model's graph and learned parameters (to be loaded on Tensorflow)
+2. `--code-output-path ./output.py`, a Python class that constructs the model's graph.
+3. `--data-output-path ./output.mat`, a data file (in NumPy's native format) containing the model's learned parameters.
 
 
 ### Example: Converting googlenet model from caffe to tensorflow 
