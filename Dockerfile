@@ -47,7 +47,8 @@ RUN apt-get install -y libgflags-dev
 RUN apt-get install -y libgoogle-glog-dev 
 RUN apt-get install -y liblmdb-dev 
 
-
+# utils
+RUN apt-get install -y wget
 RUN apt-get install -y vim
 RUN apt-get install -y git
 RUN git clone https://github.com/BVLC/caffe
@@ -65,7 +66,4 @@ RUN export PYTHONPATH=/root/caffe/python:$PYTHONPATH
 RUN echo "PYTHONPATH=/root/caffe/python:$PYTHONPATH" >> /root/.bashrc
 
 WORKDIR /
-
 RUN git clone https://github.com/psaboia/caffe-tensorflow.git
-WORKDIR /caffe-tensorflow
-
