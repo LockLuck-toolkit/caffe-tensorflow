@@ -24,7 +24,7 @@ docker run -ti caffe-tensorflow bash
 ### 4 - Convert your model
 ```
 cd caffe-tensorflow
-python2.7 convert.py --caffemodel ./model.caffemodel ./model.prototxt --data-output-path ./output.mat --code-output-path ./output.py --standalone-output-path ./standalone.pb
+python2.7 convert.py --caffemodel ./model.caffemodel ./model.prototxt --standalone-output-path ./standalone.pb --code-output-path ./output.py
 ```
 
 ### 5- Use the standalone.pb file 
@@ -35,12 +35,25 @@ It contains the weights and the architecture of the network.
 
 Run `convert.py` to convert an existing Caffe model to TensorFlow.
 
-The input consists of an existing Caffe model. Make sure you're using the latest Caffe format.
+The input consists of an existing Caffe model. 
+1. `--caffemodel ./model.caffemodel ./model.prototxt`, Make sure you're using the latest Caffe format.
 
 The output consists of the files:
 
-1. A standalone.pb GraphDef model file containing the model's graph and learned parameters (to be loaded on Tensorflow)
-2. A data file (in NumPy's native format) containing the model's learned parameters.
-3. A Python class that constructs the model's graph.
+1. `--standalone-output-path ./standalone.pb`, A standalone.pb GraphDef model file containing the model's graph and learned parameters (to be loaded on Tensorflow)
+2. `--code-output-path ./output.py`, A Python class that constructs the model's graph.
+3. `--data-output-path ./output.mat`, A data file (in NumPy's native format) containing the model's learned parameters.
 
-### Examples
+
+### Example: Converting googlenet model from caffe to tensorflow 
+```
+# get Caffe model
+wget http://dl.caffe.berkeleyvision.org/bvlc_googlenet.caffemodel
+wget https://raw.githubusercontent.com/BVLC/caffe/master/models/bvlc_googlenet/deploy.prototxt
+
+# convert 
+python2.7 convert.py --caffemodel ./bvlc_googlenet.caffemodel ./deploy.prototxt --standalone-output-path ./standalone.pb --code-output-path ./output.py
+
+```
+
+
