@@ -66,3 +66,6 @@ RUN echo "PYTHONPATH=/root/caffe/python:$PYTHONPATH" >> /root/.bashrc
 
 WORKDIR /
 
+RUN git clone https://github.com/psaboia/caffe-tensorflow.git
+WORKDIR /caffe-tensorflow
+
