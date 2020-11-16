@@ -23,6 +23,7 @@ docker run -ti caffe-tensorflow bash
 
 ### 4 - Convert your model
 ```
+cd caffe-tensorflow
 python2.7 convert.py --caffemodel ./model.caffemodel ./model.prototxt --data-output-path ./output.mat --code-output-path ./output.py --standalone-output-path ./standalone.pb
 ```
 
